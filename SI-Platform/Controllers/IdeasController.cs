@@ -3,13 +3,15 @@ using System.Threading.Tasks;
 using Abstractions.Bus;
 using Contract.Commands.Ideas;
 using Contract.Requests.Ideas;
+using Contract.Requests.Users;
 using Contract.Responses.Ideas;
+using Contract.Responses.Users;
 using Microsoft.AspNetCore.Mvc;
 using SI_Platform.Models.Ideas;
 
 namespace SI_Platform.Controllers
 {
-    [Route("api/ideas")]
+    [Route("api/users/{userId}/ideas")]
     public class IdeasController : Controller
     {
         private readonly ICommandBus _commandBus;
@@ -22,7 +24,7 @@ namespace SI_Platform.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] AddIdeaModel model)
+        public async Task<IActionResult> Add(Guid userId, [FromBody] AddIdeaModel model)
         {
             if (model == null)
             {
@@ -34,9 +36,16 @@ namespace SI_Platform.Controllers
                 return BadRequest();
             }
 
+            var user = _requestBus.RequestAsync<UserRequest, UserDTO>(new UserRequest(userId));
+
+            if (user == null)
+            {
+                return BadRequest($"User {userId} not found");
+            }
+
             var id = Guid.NewGuid();
 
-            var command = new AddIdeaCommand(id, model.Title, model.Description, model.AuthorId, model.StartFundingDate,
+            var command = new AddIdeaCommand(id, model.Title, model.Description, userId, model.StartFundingDate,
                 model.StopFundingDate);
 
             await _commandBus.ExecuteAsync(command);
@@ -44,12 +53,41 @@ namespace SI_Platform.Controllers
             return Ok();
         }
 
-        [HttpGet("{authorId}")]
-        public async Task<IActionResult> GetIdeasForAuthor(Guid authorId)
+        [HttpGet]
+        public async Task<IActionResult> GetIdeasForAuthor(Guid userId)
         {
-            var request = new GetIdeasForAuthorRequest(authorId);
+            var user = _requestBus.RequestAsync<UserRequest, UserDTO>(new UserRequest(userId));
+
+            if (user == null)
+            {
+                return BadRequest($"User {userId} not found");
+            }
+
+            var request = new GetIdeasForAuthorRequest(userId);
 
             var response = await _requestBus.RequestAsync<GetIdeasForAuthorRequest, IdeasDTO>(request);
+
+            return Ok(response);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetIdeaForAuthor(Guid userId, Guid id)
+        {
+            var user = _requestBus.RequestAsync<UserRequest, UserDTO>(new UserRequest(userId));
+
+            if (user == null)
+            {
+                return BadRequest($"User {userId} not found");
+            }
+
+            var request = new GetIdeaForAuthorRequest(userId, id);
+
+            var response = await _requestBus.RequestAsync<GetIdeaForAuthorRequest, IdeaDTO>(request);
+
+            if (response == null)
+            {
+                return BadRequest($"Idea {id} not found");
+            }
 
             return Ok(response);
         }

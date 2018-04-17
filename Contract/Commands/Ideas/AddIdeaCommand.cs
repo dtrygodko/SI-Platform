@@ -15,16 +15,16 @@ namespace Contract.Commands.Ideas
             StopFundingDate = stopFundingDate;
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; }
 
-        public string Title { get; private set; }
+        public string Title { get; }
 
-        public string Description { get; private set; }
+        public string Description { get; }
         
-        public Guid AuthorId { get; private set; }
+        public Guid AuthorId { get; }
         
-        public DateTime StartFundingDate { get; private set; }
+        public DateTime StartFundingDate { get; }
         
-        public DateTime StopFundingDate { get; private set; }
+        public DateTime StopFundingDate { get; }
     }
 }

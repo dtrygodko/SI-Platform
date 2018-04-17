@@ -12,9 +12,6 @@ namespace SI_Platform.Models.Ideas
         public string Description { get; set; }
 
         [Required]
-        public Guid AuthorId { get; set; }
-
-        [Required]
         public DateTime StartFundingDate { get; set; }
 
         [Required]
