@@ -8,7 +8,7 @@ namespace DataAccess.Modules
         protected override void Load(ContainerBuilder builder)
         {
             RegisterContext(builder);
-            //builder.RegisterType<IdeasRepository>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<IdeasRepository>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<UsersRepository>().AsImplementedInterfaces().SingleInstance();
         }
 

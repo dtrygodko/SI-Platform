@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Contract.Commands.Ideas;
 using Contract.Commands.Users;
 using Contract.Responses.Ideas;
 using Contract.Responses.Users;
@@ -13,6 +14,7 @@ namespace Application.Profiles
             CreateMap<Idea, IdeaDTO>();
             CreateMap<User, UserDTO>();
             CreateMap<AddUserCommand, User>().ForMember(m => m.Email, expression => expression.AddTransform(value => value.ToLowerInvariant()));
+            CreateMap<AddIdeaCommand, Idea>();
         }
     }
 }
