@@ -4,15 +4,13 @@ using Contract.Responses.Ideas;
 
 namespace Contract.Requests.Ideas
 {
-    public class GetIdeaForAuthorRequest : IRequest<IdeaDTO>
+    public class IdeaRequest : IRequest<IdeaDTO>
     {
-        public GetIdeaForAuthorRequest(Guid authorId, Guid id)
+        public IdeaRequest(Guid id)
         {
-            AuthorId = authorId;
             Id = id;
         }
-
-        public Guid AuthorId { get; }
+        
         public Guid Id { get; }
     }
 }

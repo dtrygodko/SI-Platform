@@ -36,13 +36,6 @@ namespace SI_Platform.Controllers
                 return BadRequest();
             }
 
-            var user = _requestBus.RequestAsync<UserRequest, UserDTO>(new UserRequest(userId));
-
-            if (user == null)
-            {
-                return BadRequest($"User {userId} not found");
-            }
-
             var id = Guid.NewGuid();
 
             var command = new AddIdeaCommand(id, model.Title, model.Description, userId, model.StartFundingDate,
@@ -56,13 +49,6 @@ namespace SI_Platform.Controllers
         [HttpGet]
         public async Task<IActionResult> GetIdeasForAuthor(Guid userId)
         {
-            var user = _requestBus.RequestAsync<UserRequest, UserDTO>(new UserRequest(userId));
-
-            if (user == null)
-            {
-                return BadRequest($"User {userId} not found");
-            }
-
             var request = new GetIdeasForAuthorRequest(userId);
 
             var response = await _requestBus.RequestAsync<GetIdeasForAuthorRequest, IdeasDTO>(request);
@@ -80,9 +66,9 @@ namespace SI_Platform.Controllers
                 return BadRequest($"User {userId} not found");
             }
 
-            var request = new GetIdeaForAuthorRequest(userId, id);
+            var request = new IdeaRequest(id);
 
-            var response = await _requestBus.RequestAsync<GetIdeaForAuthorRequest, IdeaDTO>(request);
+            var response = await _requestBus.RequestAsync<IdeaRequest, IdeaDTO>(request);
 
             if (response == null)
             {

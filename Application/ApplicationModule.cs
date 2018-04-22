@@ -1,5 +1,7 @@
 ﻿using Abstractions.CQRS;
+using Application.Profiles;
 using Autofac;
+using AutoMapper;
 
 namespace Application
 {
@@ -14,6 +16,12 @@ namespace Application
             builder.RegisterAssemblyTypes(ThisAssembly)
                 .AsClosedTypesOf(typeof(IRequestHandler<,>))
                 .AsImplementedInterfaces();
+
+            builder.Register(c => new MapperConfiguration(cfg => cfg.AddProfile(new ApplicationProfile()))).AsSelf()
+                .SingleInstance();
+
+            builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve)).As<IMapper>()
+                .SingleInstance();
         }
     }
 }

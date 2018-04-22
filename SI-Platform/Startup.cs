@@ -2,10 +2,10 @@
 using Application;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using DataAccess.Modules;
 using Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace SI_Platform
@@ -23,6 +23,8 @@ namespace SI_Platform
             builder.Populate(services);
             builder.RegisterModule<InfrastructureModule>();
             builder.RegisterModule<ApplicationModule>();
+            builder.RegisterModule<DataAccessReadModule>();
+            builder.RegisterModule<DataAccessWriteModule>();
 
             var container = builder.Build();
 
