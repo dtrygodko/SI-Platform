@@ -1,5 +1,8 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using DataAccess.Repositories.Read;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Modules
 {
@@ -14,6 +17,16 @@ namespace DataAccess.Modules
 
         protected virtual void RegisterContext(ContainerBuilder builder)
         {
+            builder.Register(c =>
+            {
+                var configuration = c.Resolve<IConfiguration>();
+
+                DbContextOptions<SIPlatformDbContext> options = new DbContextOptionsBuilder<SIPlatformDbContext>()
+                    .UseSqlServer(configuration.GetConnectionString("SIPlatformConnection")).Options;
+
+                return options;
+            });
+
             builder.RegisterType<SIPlatformDbContext>().AsSelf().SingleInstance();
         }
     }

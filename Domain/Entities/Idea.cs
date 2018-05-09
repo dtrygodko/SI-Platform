@@ -13,6 +13,8 @@ namespace Domain.Entities
 
         public Guid AuthorId { get; set; }
 
+        public User Author { get; set; }
+
         public DateTime StartFundingDate { get; set; }
 
         public DateTime StopFundingDate { get; set; }
