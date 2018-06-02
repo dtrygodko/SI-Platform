@@ -1,0 +1,26 @@
+
+<div class="user-details">
+  <span>Here is userdetails</span>
+  <div class="ideas">
+    <span>ideas</span>
+    <button (click)="showIdeas()">All ideas </button>
+
+    <div class="idea" *ngFor="let idea of ideas">
+      <div class="title"> {{idea.idea}}</div>
+      <div class="ideaDetails" (click)="showIdeasDetails()">
+        <span>idea detail</span>
+      </div>
+    </div>
+    <div class="add-idea">
+      <button class="add-idea" (click)="addIdea()">
+
+      </button>
+      <div class="add-idea" *ngIf="isIdeas">
+        <input type="text" [(ngModel)]="newIdea">
+        <button type="button" class="btn btn-default" (click)="postIdea()">Add idea</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

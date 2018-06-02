@@ -12,16 +12,15 @@ export class UserService implements OnInit {
   ngOnInit() {
   }
 
-
   getUsers(): Observable<any> {
-    return this.http.get('/api/users')
+    return this.http.get('localhost:4200/api/users')
       .map((res: Response) => {
         return res;
       })
   }
 
-  addUser(user: any): Observable<any> {
-    return this.http.post('/api/addUser', {username: user.username, password: user.password})
+  addIdea(idea: any) {
+    return this.http.post('localhost:4200/api/addIdea', {ideaSomething: idea.something})
       .map((res: Response) => {
         return res;
       })
