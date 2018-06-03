@@ -1,14 +1,12 @@
-<div class="main-page">
-  <div class="all-users" *ngFor="let user of allUsers ">
-    <div class="user__name">
-      {{user.name}}
-    </div>
-    <div class="user_id">
-      {{user.id}}
-    </div>
-    <div class="user-ideas" >
-      <button class="show-details" (click)="showDetails(user.id)">Show User Details</button>
-    </div>
-    <user-datails *ngIf="user.id == userDetailsId"></user-datails>
-  </div>
-</div>
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>{{pageTitle}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <button ion-item *ngFor="let user of allUsers" (click)="userSelected($event, user)">
+            {{user.firstName}} {{user.lastName}}
+        </button>
+    </ion-list>
+</ion-content>

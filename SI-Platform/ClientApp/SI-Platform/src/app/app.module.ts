@@ -10,12 +10,15 @@ import {UsersPage} from "./users/users.component";
 import {UserDatailsComponent} from "./users/user-datails/user-datails.component";
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { IdeasService } from '../services/idea.service';
+import { IdeaDetailsPage } from './ideas/idea-detail.component';
 
 @NgModule({
   declarations: [
     MyApp,
     UsersPage,
-    UserDatailsComponent
+    UserDatailsComponent,
+    IdeaDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -28,12 +31,14 @@ import { HttpClientModule } from '@angular/common/http';
   entryComponents: [
     MyApp,
     UsersPage,
-    UserDatailsComponent
+    UserDatailsComponent,
+    IdeaDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     UserService,
+    IdeasService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

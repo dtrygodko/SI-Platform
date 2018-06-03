@@ -1,0 +1,19 @@
+import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
+import {IIdeasList, IIdea} from "../models/idea.model";
+
+@Injectable()
+export class IdeasService {
+
+  constructor(public http: HttpClient) {
+  }
+
+  getIdeas(authorId: string): Observable<IIdeasList> {
+    return this.http.get<IIdeasList>(`http://localhost:52952/api/users/${authorId}/ideas`);
+  }
+
+  getIdea(authorId: string, id: string) : Observable<IIdea> {
+    return this.http.get<IIdea>(`http://localhost:52952/api/users/${authorId}/ideas/${id}`);
+  }
+}

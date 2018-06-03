@@ -16,7 +16,11 @@ namespace SI_Platform
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            });
+            services.AddCors();
 
             var builder = new ContainerBuilder();
 
@@ -40,6 +44,7 @@ namespace SI_Platform
             }
 
             app.UseMvc();
+            app.UseCors(cp => cp.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
         }
     }
 }

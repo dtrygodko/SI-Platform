@@ -1,30 +1,21 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
+import "rxjs/add/operator/do";
+import {IUser, IUsersList} from "../models/user";
 
 @Injectable()
-export class UserService implements OnInit {
+export class UserService {
 
   constructor(public http: HttpClient) {
   }
 
-  ngOnInit() {
+  getUsers(): Observable<IUsersList> {
+    return this.http.get<IUsersList>('http://localhost:52952/api/users');
   }
 
-  getUsers(): Observable<any> {
-    return this.http.get('localhost:4200/api/users')
-      .map((res: Response) => {
-        return res;
-      })
+  getUser(id: string) : Observable<IUser> {
+    return this.http.get<IUser>(`http://localhost:52952/api/users/${id}`);
   }
-
-  addIdea(idea: any) {
-    return this.http.post('localhost:4200/api/addIdea', {ideaSomething: idea.something})
-      .map((res: Response) => {
-        return res;
-      })
-  }
-
-
 }

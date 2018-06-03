@@ -1,46 +1,31 @@
-import {Component, OnInit} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import {UserService} from "../../services/user.service";
-
+import {IUser} from "../../models/user";
+import { UserDatailsComponent } from './user-datails/user-datails.component';
 
 
 @Component({
   selector: 'page-users',
   templateUrl: 'users.component.html',
 })
-export class UsersPage implements OnInit{
-  allUsers = [
-    {
-    "name": "Max", "id": "1"
-    },
-    {
-      "name": "Victor", "id": "2"
-    },
-    {
-      "name": "Ibrahim", "id": "3"
-    }
-  ];
-  testUuser: any;
-  userDetailsId: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService) {
+export class UsersPage {
+  pageTitle: string = "Users List";
+  allUsers: IUser[] = [];
+  constructor(private navCtrl: NavController, public navParams: NavParams, private userService: UserService) {
   }
 
-  ngOnInit() {
-    // this.getAllUSers()
-  }
-
-  getAllUSers() {
+  getAllUsers() {
     this.userService.getUsers().subscribe(data => {
-      this.testUuser = data;
-      console.log(this.testUuser);
+      this.allUsers = data.users;
     })
   }
-  showDetails(id: any) {
-    this.userDetailsId = id;
+
+  userSelected($event, user) {
+    this.navCtrl.push(UserDatailsComponent, user);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UsersPage');
+    this.getAllUsers();
   }
-
 }

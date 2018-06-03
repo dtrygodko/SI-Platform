@@ -28,7 +28,7 @@ namespace Contract.Responses.Ideas
         public DateTime StartFundingDate { get; private set; }
 
         public DateTime StopFundingDate { get; private set; }
-
+        
         public IdeaStatus Status { get; private set; }
     }
 }

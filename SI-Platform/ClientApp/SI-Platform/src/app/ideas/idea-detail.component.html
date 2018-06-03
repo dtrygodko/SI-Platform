@@ -1,0 +1,25 @@
+
+<ion-header>
+        <ion-navbar></ion-navbar>
+    </ion-header>
+    <ion-content>
+      <ion-card>
+        <ion-card-content>
+          <ion-row>
+            {{idea.title}}
+          </ion-row>
+          <ion-row>
+            Status: {{idea.status}}
+          </ion-row>
+          <ion-row>
+            From: {{idea.startFundingDate | date}}
+          </ion-row>
+          <ion-row>
+            To: {{idea.stopFundingDate | date}}
+          </ion-row>
+          <ion-row>
+            {{idea.description}}
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-content>    

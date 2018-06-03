@@ -1,8 +1,12 @@
-export class Idea {
+export interface IIdea {
+  id: string,
+  title: string,
+  description: string,
+  startFundingDate: Date,
+  stopFundingDate: Date,
+  status: string
+}
 
-  constructor(
-    public name: string,
-    public alterEgo?: string
-  ) {  }
-
+export interface IIdeasList {
+  ideas: IIdea[]
 }
