@@ -17,6 +17,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { IdeasService } from '../services/idea.service';
 import { IdeaDetailsPage } from './ideas/idea-detail.component';
+import { AddIdeaPage } from './ideas/add-idea/add-idea.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -26,7 +27,8 @@ var AppModule = /** @class */ (function () {
                 MyApp,
                 UsersPage,
                 UserDatailsComponent,
-                IdeaDetailsPage
+                IdeaDetailsPage,
+                AddIdeaPage
             ],
             imports: [
                 BrowserModule,
@@ -39,7 +41,8 @@ var AppModule = /** @class */ (function () {
                 MyApp,
                 UsersPage,
                 UserDatailsComponent,
-                IdeaDetailsPage
+                IdeaDetailsPage,
+                AddIdeaPage
             ],
             providers: [
                 StatusBar,

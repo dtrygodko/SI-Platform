@@ -4,6 +4,7 @@ import { IUser } from '../../../models/user';
 import { NavController, NavParams } from 'ionic-angular';
 import { IdeasService } from '../../../services/idea.service';
 import { IdeaDetailsPage } from '../../ideas/idea-detail.component';
+import { AddIdeaPage } from '../../ideas/add-idea/add-idea.component';
 
 @Component({
   selector: 'user-datails',
@@ -37,5 +38,9 @@ export class UserDatailsComponent {
   ionViewDidLoad() {
     this.user = this.navParams.data;
     this.getIdeas();
+  }
+
+  addIdea() {
+    this.navCtrl.push(AddIdeaPage, this.user.id);
   }
 }

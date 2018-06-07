@@ -16,4 +16,8 @@ export class IdeasService {
   getIdea(authorId: string, id: string) : Observable<IIdea> {
     return this.http.get<IIdea>(`http://localhost:52952/api/users/${authorId}/ideas/${id}`);
   }
+
+  addIdea(authorId: string, idea) : Observable<any> {
+    return this.http.post(`http://localhost:52952/api/users/${authorId}/ideas`, idea);
+  }
 }

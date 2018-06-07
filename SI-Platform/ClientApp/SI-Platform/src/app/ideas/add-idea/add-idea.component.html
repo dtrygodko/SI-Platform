@@ -1,0 +1,19 @@
+<form [formGroup]="idea" (ngSubmit)="addIdea()">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label>Start funding at</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="startFundingDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Stop funding at</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="stopFundingDate"></ion-datetime>
+      </ion-item>
+    <button ion-button type="submit">Submit</button>
+  </form>

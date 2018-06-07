@@ -12,19 +12,20 @@ import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { IdeasService } from '../services/idea.service';
 import { IdeaDetailsPage } from './ideas/idea-detail.component';
+import { AddIdeaPage } from './ideas/add-idea/add-idea.component';
 
 @NgModule({
   declarations: [
     MyApp,
     UsersPage,
     UserDatailsComponent,
-    IdeaDetailsPage
+    IdeaDetailsPage,
+    AddIdeaPage
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -32,7 +33,8 @@ import { IdeaDetailsPage } from './ideas/idea-detail.component';
     MyApp,
     UsersPage,
     UserDatailsComponent,
-    IdeaDetailsPage
+    IdeaDetailsPage,
+    AddIdeaPage
   ],
   providers: [
     StatusBar,

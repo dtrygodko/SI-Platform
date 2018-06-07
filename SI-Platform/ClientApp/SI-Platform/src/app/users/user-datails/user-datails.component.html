@@ -1,27 +1,29 @@
-
 <ion-header>
-    <ion-navbar></ion-navbar>
+  <ion-card>
+      <ion-card-content>
+        <ion-row>
+          {{user.firstName}} {{user.lastName}}
+        </ion-row>
+        <ion-row>
+          {{user.email}}
+        </ion-row>
+        <ion-row>
+          {{user.city}}
+        </ion-row>
+        <ion-row>
+          {{user.phone}}
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-navbar>
+      <ion-title>Ideas</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="addIdea()"><ion-icon name="add"></ion-icon></button>
+      </ion-buttons>
+    </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      <ion-row>
-        {{user.firstName}} {{user.lastName}}
-      </ion-row>
-      <ion-row>
-        {{user.email}}
-      </ion-row>
-      <ion-row>
-        {{user.city}}
-      </ion-row>
-      <ion-row>
-        {{user.phone}}
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
-  
   <ion-list>
-    <ion-list-header>Ideas</ion-list-header>
     <button ion-item *ngFor="let idea of ideas" (click)="ideaSelected($event, idea)">
       {{idea.title}}
     </button>
