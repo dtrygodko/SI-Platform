@@ -35,7 +35,7 @@ export class UserDatailsComponent {
     this.navCtrl.push(IdeaDetailsPage, idea);
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.user = this.navParams.data;
     this.getIdeas();
   }

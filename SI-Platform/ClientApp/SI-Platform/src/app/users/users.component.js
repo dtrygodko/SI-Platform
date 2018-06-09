@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserService } from "../../services/user.service";
 import { UserDatailsComponent } from './user-datails/user-datails.component';
+import { AddUserPage } from './add-user/add-user.component';
 var UsersPage = /** @class */ (function () {
     function UsersPage(navCtrl, navParams, userService) {
         this.navCtrl = navCtrl;
@@ -30,6 +31,9 @@ var UsersPage = /** @class */ (function () {
     };
     UsersPage.prototype.ionViewDidLoad = function () {
         this.getAllUsers();
+    };
+    UsersPage.prototype.addUser = function () {
+        this.navCtrl.push(AddUserPage);
     };
     UsersPage = __decorate([
         Component({

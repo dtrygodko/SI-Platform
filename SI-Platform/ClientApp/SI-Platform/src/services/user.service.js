@@ -21,6 +21,9 @@ var UserService = /** @class */ (function () {
     UserService.prototype.getUser = function (id) {
         return this.http.get("http://localhost:52952/api/users/" + id);
     };
+    UserService.prototype.addUser = function (user) {
+        return this.http.post('http://localhost:52952/api/users', user);
+    };
     UserService = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient])

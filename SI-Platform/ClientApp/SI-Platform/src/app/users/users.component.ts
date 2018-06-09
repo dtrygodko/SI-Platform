@@ -26,7 +26,7 @@ export class UsersPage {
     this.navCtrl.push(UserDatailsComponent, user);
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.getAllUsers();
   }
 
