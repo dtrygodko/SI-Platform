@@ -14,6 +14,7 @@ import { IdeasService } from '../services/idea.service';
 import { IdeaDetailsPage } from './ideas/idea-detail.component';
 import { AddIdeaPage } from './ideas/add-idea/add-idea.component';
 import { AddUserPage } from './users/add-user/add-user.component';
+import { FundIdeaPage } from './ideas/fund-idea/fund-idea.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddUserPage } from './users/add-user/add-user.component';
     UserDatailsComponent,
     IdeaDetailsPage,
     AddIdeaPage,
-    AddUserPage
+    AddUserPage,
+    FundIdeaPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { AddUserPage } from './users/add-user/add-user.component';
     UserDatailsComponent,
     IdeaDetailsPage,
     AddIdeaPage,
-    AddUserPage
+    AddUserPage,
+    FundIdeaPage
   ],
   providers: [
     StatusBar,

@@ -20,4 +20,8 @@ export class IdeasService {
   addIdea(authorId: string, idea) : Observable<any> {
     return this.http.post(`http://localhost:52952/api/users/${authorId}/ideas`, idea);
   }
+
+  fundIdea(idea: IIdea, amount: number) : Observable<any> {
+    return this.http.put(`http://localhost:52952/api/users/${idea.authorId}/ideas/${idea.id}`, amount);
+  }
 }

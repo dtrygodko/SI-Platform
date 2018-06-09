@@ -1,0 +1,9 @@
+<ion-navbar>
+</ion-navbar>
+<form [formGroup]="idea" (ngSubmit)="fundIdea()">
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input type="number" formControlName="amount"></ion-input>
+    </ion-item>
+    <button ion-button type="submit">Submit</button>
+  </form>

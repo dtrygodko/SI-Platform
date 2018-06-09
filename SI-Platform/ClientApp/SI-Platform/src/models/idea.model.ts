@@ -4,7 +4,8 @@ export interface IIdea {
   description: string,
   startFundingDate: Date,
   stopFundingDate: Date,
-  status: string
+  status: string,
+  authorId: string
 }
 
 export interface IIdeasList {
