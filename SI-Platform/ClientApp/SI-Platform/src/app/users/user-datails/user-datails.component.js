@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { IdeasService } from '../../../services/idea.service';
 import { IdeaDetailsPage } from '../../ideas/idea-detail.component';
+import { AddIdeaPage } from '../../ideas/add-idea/add-idea.component';
 var UserDatailsComponent = /** @class */ (function () {
     function UserDatailsComponent(ideasService, navCtrl, navParams) {
         this.ideasService = ideasService;
@@ -39,6 +40,9 @@ var UserDatailsComponent = /** @class */ (function () {
     UserDatailsComponent.prototype.ionViewDidLoad = function () {
         this.user = this.navParams.data;
         this.getIdeas();
+    };
+    UserDatailsComponent.prototype.addIdea = function () {
+        this.navCtrl.push(AddIdeaPage, this.user.id);
     };
     UserDatailsComponent = __decorate([
         Component({

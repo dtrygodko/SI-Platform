@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { IdeasService } from '../services/idea.service';
 import { IdeaDetailsPage } from './ideas/idea-detail.component';
 import { AddIdeaPage } from './ideas/add-idea/add-idea.component';
+import { AddUserPage } from './users/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddIdeaPage } from './ideas/add-idea/add-idea.component';
     UsersPage,
     UserDatailsComponent,
     IdeaDetailsPage,
-    AddIdeaPage
+    AddIdeaPage,
+    AddUserPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { AddIdeaPage } from './ideas/add-idea/add-idea.component';
     UsersPage,
     UserDatailsComponent,
     IdeaDetailsPage,
-    AddIdeaPage
+    AddIdeaPage,
+    AddUserPage
   ],
   providers: [
     StatusBar,

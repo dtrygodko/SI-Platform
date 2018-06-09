@@ -18,4 +18,8 @@ export class UserService {
   getUser(id: string) : Observable<IUser> {
     return this.http.get<IUser>(`http://localhost:52952/api/users/${id}`);
   }
+
+  addUser(user) : Observable<any> {
+    return this.http.post('http://localhost:52952/api/users', user);
+  }
 }

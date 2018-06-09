@@ -8,25 +8,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { NavParams, NavController } from 'ionic-angular';
+import { FormBuilder } from '@angular/forms';
+import { IdeasService } from '../../../services/idea.service';
 var AddIdeaPage = /** @class */ (function () {
-    function AddIdeaPage(formBuilder) {
+    function AddIdeaPage(formBuilder, navParams, ideaService, navCtrl) {
         this.formBuilder = formBuilder;
+        this.navParams = navParams;
+        this.ideaService = ideaService;
+        this.navCtrl = navCtrl;
         this.idea = this.formBuilder.group({
-            title: ['', Validators.required],
+            title: [''],
             description: [''],
             startFundingDate: [''],
             stopFundingDate: ['']
         });
     }
-    AddIdeaPage.prototype.logForm = function () {
-        console.log(this.idea.value);
+    AddIdeaPage.prototype.addIdea = function () {
+        var _this = this;
+        this.ideaService.addIdea(this.navParams.data, this.idea.value).subscribe(function (data) {
+            _this.navCtrl.pop();
+        });
     };
     AddIdeaPage = __decorate([
         Component({
             templateUrl: 'add-idea.component.html'
         }),
-        __metadata("design:paramtypes", [FormBuilder])
+        __metadata("design:paramtypes", [FormBuilder, NavParams, IdeasService, NavController])
     ], AddIdeaPage);
     return AddIdeaPage;
 }());

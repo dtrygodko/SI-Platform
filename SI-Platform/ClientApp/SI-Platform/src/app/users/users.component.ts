@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {UserService} from "../../services/user.service";
 import {IUser} from "../../models/user";
 import { UserDatailsComponent } from './user-datails/user-datails.component';
+import { AddUserPage } from './add-user/add-user.component';
 
 
 @Component({
@@ -27,5 +28,9 @@ export class UsersPage {
 
   ionViewDidLoad() {
     this.getAllUsers();
+  }
+
+  addUser() {
+    this.navCtrl.push(AddUserPage);
   }
 }

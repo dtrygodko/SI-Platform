@@ -1,0 +1,34 @@
+<form [formGroup]="user" (ngSubmit)="addUser()">
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Last Name</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>City</ion-label>
+          <ion-input type="text" formControlName="city"></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-label>Phone</ion-label>
+        <ion-input type="tel" formControlName="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Type</ion-label>
+            <ion-select formControlName="type">
+                <ion-option value="RegularUser">Regular</ion-option>
+                <ion-option value="Admin">Admin</ion-option>
+            </ion-select>
+        </ion-item>
+    <button ion-button type="submit">Submit</button>
+  </form>
