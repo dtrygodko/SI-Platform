@@ -8,14 +8,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { UserService } from "../../services/user.service";
-import { UserDatailsComponent } from './user-datails/user-datails.component';
+import { UserDetailsPage } from './user-datails/user-datails.component';
 import { AddUserPage } from './add-user/add-user.component';
 var UsersPage = /** @class */ (function () {
-    function UsersPage(navCtrl, navParams, userService) {
+    function UsersPage(navCtrl, userService) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
         this.userService = userService;
         this.pageTitle = "Users List";
         this.allUsers = [];
@@ -27,9 +26,9 @@ var UsersPage = /** @class */ (function () {
         });
     };
     UsersPage.prototype.userSelected = function ($event, user) {
-        this.navCtrl.push(UserDatailsComponent, user);
+        this.navCtrl.push(UserDetailsPage, user);
     };
-    UsersPage.prototype.ionViewDidLoad = function () {
+    UsersPage.prototype.ionViewDidEnter = function () {
         this.getAllUsers();
     };
     UsersPage.prototype.addUser = function () {
@@ -40,7 +39,7 @@ var UsersPage = /** @class */ (function () {
             selector: 'page-users',
             templateUrl: 'users.component.html',
         }),
-        __metadata("design:paramtypes", [NavController, NavParams, UserService])
+        __metadata("design:paramtypes", [NavController, UserService])
     ], UsersPage);
     return UsersPage;
 }());

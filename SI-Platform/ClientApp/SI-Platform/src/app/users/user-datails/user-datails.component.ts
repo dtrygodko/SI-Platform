@@ -10,7 +10,7 @@ import { AddIdeaPage } from '../../ideas/add-idea/add-idea.component';
   selector: 'user-datails',
   templateUrl: 'user-datails.component.html'
 })
-export class UserDatailsComponent {
+export class UserDetailsPage {
  ideas: IIdea[] = [];
  user: IUser = {
    firstName: "1",
@@ -22,7 +22,7 @@ export class UserDatailsComponent {
    phone: "1"
  };
 
-  constructor(public ideasService: IdeasService, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private ideasService: IdeasService, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   getIdeas() {

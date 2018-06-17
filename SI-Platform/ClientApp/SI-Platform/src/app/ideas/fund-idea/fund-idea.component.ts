@@ -14,7 +14,7 @@ export class FundIdeaPage {
     });
   }
   fundIdea() {
-    this.ideaService.fundIdea(this.navParams.data, this.idea.value.amount).subscribe(() => {
+    this.ideaService.fundIdea(this.navParams.data, this.idea.value).subscribe(() => {
       this.navCtrl.pop();
     });
   }

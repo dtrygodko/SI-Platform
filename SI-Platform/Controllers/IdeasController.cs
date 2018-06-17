@@ -46,6 +46,28 @@ namespace SI_Platform.Controllers
             return Ok();
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> FundIdea(Guid userId, Guid id, [FromBody] FundIdeaModel model)
+        {
+            if (model == null)
+            {
+                return BadRequest();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var transactionId = Guid.NewGuid();
+
+            var command = new FundIdeaCommand(id, transactionId, model.Amount, DateTime.UtcNow);
+
+            await _commandBus.ExecuteAsync(command);
+
+            return Ok();
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetIdeasForAuthor(Guid userId)
         {

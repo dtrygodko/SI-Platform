@@ -18,6 +18,12 @@
             To: {{idea.stopFundingDate | date}}
           </ion-row>
           <ion-row>
+            Target: {{idea.target}}
+          </ion-row>
+          <ion-row>
+            Fullfillment: {{idea.fullfillment}}
+          </ion-row>
+          <ion-row>
             {{idea.description}}
           </ion-row>
           <button ion-button (click)="fund()">Fund</button>

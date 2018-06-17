@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController} from 'ionic-angular';
 import {UserService} from "../../services/user.service";
 import {IUser} from "../../models/user";
-import { UserDatailsComponent } from './user-datails/user-datails.component';
+import { UserDetailsPage } from './user-datails/user-datails.component';
 import { AddUserPage } from './add-user/add-user.component';
 
 
@@ -13,7 +13,7 @@ import { AddUserPage } from './add-user/add-user.component';
 export class UsersPage {
   pageTitle: string = "Users List";
   allUsers: IUser[] = [];
-  constructor(private navCtrl: NavController, public navParams: NavParams, private userService: UserService) {
+  constructor(public navCtrl: NavController, private userService: UserService) {
   }
 
   getAllUsers() {
@@ -23,7 +23,7 @@ export class UsersPage {
   }
 
   userSelected($event, user) {
-    this.navCtrl.push(UserDatailsComponent, user);
+    this.navCtrl.push(UserDetailsPage, user);
   }
 
   ionViewDidEnter() {

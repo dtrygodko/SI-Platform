@@ -6,7 +6,7 @@ namespace Contract.Responses.Ideas
 {
     public class IdeaDTO : IResponse
     {
-        public IdeaDTO(Guid id, string title, string description, Guid authorId, DateTime startFundingDate, DateTime stopFundingDate, IdeaStatus status)
+        public IdeaDTO(Guid id, string title, string description, Guid authorId, DateTime startFundingDate, DateTime stopFundingDate, IdeaStatus status, double target, double fullfillment)
         {
             Id = id;
             Title = title;
@@ -15,6 +15,8 @@ namespace Contract.Responses.Ideas
             StartFundingDate = startFundingDate;
             StopFundingDate = stopFundingDate;
             Status = status;
+            Target = target;
+            Fullfillment = fullfillment;
         }
 
         public Guid Id { get; private set; }
@@ -30,5 +32,9 @@ namespace Contract.Responses.Ideas
         public DateTime StopFundingDate { get; private set; }
         
         public IdeaStatus Status { get; private set; }
+
+        public double Target { get; private set; }
+
+        public double Fullfillment { get; private set; }
     }
 }

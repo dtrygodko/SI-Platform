@@ -5,7 +5,9 @@ export interface IIdea {
   startFundingDate: Date,
   stopFundingDate: Date,
   status: string,
-  authorId: string
+  authorId: string,
+  target: number,
+  fullfillment: number
 }
 
 export interface IIdeasList {

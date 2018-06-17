@@ -15,6 +15,8 @@ namespace Application.Profiles
             CreateMap<User, UserDTO>();
             CreateMap<AddUserCommand, User>().ForMember(m => m.Email, expression => expression.AddTransform(value => value.ToLowerInvariant()));
             CreateMap<AddIdeaCommand, Idea>();
+            CreateMap<FundIdeaCommand, Transaction>().ForMember(m => m.Id,
+                expression => expression.MapFrom(source => source.TransactionId));
         }
     }
 }

@@ -15,7 +15,9 @@ export class IdeaDetailsPage {
     stopFundingDate: new Date(),
     status: "1",
     title: "1",
-    authorId: "1"
+    authorId: "1",
+    fullfillment: 0,
+    target: 0
   };
 
   constructor(private navParams: NavParams, private navCtrl: NavController) {

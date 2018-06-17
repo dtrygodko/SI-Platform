@@ -22,6 +22,9 @@ var IdeasService = /** @class */ (function () {
     IdeasService.prototype.addIdea = function (authorId, idea) {
         return this.http.post("http://localhost:52952/api/users/" + authorId + "/ideas", idea);
     };
+    IdeasService.prototype.fundIdea = function (idea, amount) {
+        return this.http.put("http://localhost:52952/api/users/" + idea.authorId + "/ideas/" + idea.id, amount);
+    };
     IdeasService = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient])

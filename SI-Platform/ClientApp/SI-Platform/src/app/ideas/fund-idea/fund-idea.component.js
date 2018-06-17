@@ -11,33 +11,29 @@ import { Component } from '@angular/core';
 import { NavParams, NavController } from 'ionic-angular';
 import { FormBuilder } from '@angular/forms';
 import { IdeasService } from '../../../services/idea.service';
-var AddIdeaPage = /** @class */ (function () {
-    function AddIdeaPage(formBuilder, navParams, ideaService, navCtrl) {
+var FundIdeaPage = /** @class */ (function () {
+    function FundIdeaPage(formBuilder, navParams, ideaService, navCtrl) {
         this.formBuilder = formBuilder;
         this.navParams = navParams;
         this.ideaService = ideaService;
         this.navCtrl = navCtrl;
         this.idea = this.formBuilder.group({
-            title: [''],
-            description: [''],
-            startFundingDate: [''],
-            stopFundingDate: [''],
-            target: ['']
+            amount: ['']
         });
     }
-    AddIdeaPage.prototype.addIdea = function () {
+    FundIdeaPage.prototype.fundIdea = function () {
         var _this = this;
-        this.ideaService.addIdea(this.navParams.data, this.idea.value).subscribe(function (data) {
+        this.ideaService.fundIdea(this.navParams.data, this.idea.value).subscribe(function () {
             _this.navCtrl.pop();
         });
     };
-    AddIdeaPage = __decorate([
+    FundIdeaPage = __decorate([
         Component({
-            templateUrl: 'add-idea.component.html'
+            templateUrl: 'fund-idea.component.html'
         }),
         __metadata("design:paramtypes", [FormBuilder, NavParams, IdeasService, NavController])
-    ], AddIdeaPage);
-    return AddIdeaPage;
+    ], FundIdeaPage);
+    return FundIdeaPage;
 }());
-export { AddIdeaPage };
-//# sourceMappingURL=add-idea.component.js.map
+export { FundIdeaPage };
+//# sourceMappingURL=fund-idea.component.js.map

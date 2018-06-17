@@ -8,28 +8,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
+import { FundIdeaPage } from './fund-idea/fund-idea.component';
 var IdeaDetailsPage = /** @class */ (function () {
-    function IdeaDetailsPage(navParams) {
+    function IdeaDetailsPage(navParams, navCtrl) {
         this.navParams = navParams;
+        this.navCtrl = navCtrl;
         this.idea = {
             id: "1",
             description: "1",
             startFundingDate: new Date(),
             stopFundingDate: new Date(),
             status: "1",
-            title: "1"
+            title: "1",
+            authorId: "1",
+            fullfillment: 0,
+            target: 0
         };
     }
     IdeaDetailsPage.prototype.ionViewDidLoad = function () {
         this.idea = this.navParams.data;
+    };
+    IdeaDetailsPage.prototype.fund = function () {
+        this.navCtrl.push(FundIdeaPage, this.idea);
     };
     IdeaDetailsPage = __decorate([
         Component({
             selector: 'page-idea-details',
             templateUrl: 'idea-detail.component.html',
         }),
-        __metadata("design:paramtypes", [NavParams])
+        __metadata("design:paramtypes", [NavParams, NavController])
     ], IdeaDetailsPage);
     return IdeaDetailsPage;
 }());

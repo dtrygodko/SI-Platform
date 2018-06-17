@@ -12,13 +12,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserService } from "../services/user.service";
 import { UsersPage } from "./users/users.component";
-import { UserDatailsComponent } from "./users/user-datails/user-datails.component";
+import { UserDetailsPage } from "./users/user-datails/user-datails.component";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { IdeasService } from '../services/idea.service';
 import { IdeaDetailsPage } from './ideas/idea-detail.component';
 import { AddIdeaPage } from './ideas/add-idea/add-idea.component';
 import { AddUserPage } from './users/add-user/add-user.component';
+import { FundIdeaPage } from './ideas/fund-idea/fund-idea.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -27,10 +28,11 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 MyApp,
                 UsersPage,
-                UserDatailsComponent,
+                UserDetailsPage,
                 IdeaDetailsPage,
                 AddIdeaPage,
-                AddUserPage
+                AddUserPage,
+                FundIdeaPage
             ],
             imports: [
                 BrowserModule,
@@ -42,10 +44,11 @@ var AppModule = /** @class */ (function () {
             entryComponents: [
                 MyApp,
                 UsersPage,
-                UserDatailsComponent,
+                UserDetailsPage,
                 IdeaDetailsPage,
                 AddIdeaPage,
-                AddUserPage
+                AddUserPage,
+                FundIdeaPage
             ],
             providers: [
                 StatusBar,

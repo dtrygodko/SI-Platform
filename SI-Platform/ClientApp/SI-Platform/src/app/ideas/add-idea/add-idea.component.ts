@@ -13,7 +13,8 @@ export class AddIdeaPage {
       title: [''],
       description: [''],
       startFundingDate: [''],
-      stopFundingDate: ['']
+      stopFundingDate: [''],
+      target: ['']
     });
   }
   addIdea(){

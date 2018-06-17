@@ -12,8 +12,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { IdeasService } from '../../../services/idea.service';
 import { IdeaDetailsPage } from '../../ideas/idea-detail.component';
 import { AddIdeaPage } from '../../ideas/add-idea/add-idea.component';
-var UserDatailsComponent = /** @class */ (function () {
-    function UserDatailsComponent(ideasService, navCtrl, navParams) {
+var UserDetailsPage = /** @class */ (function () {
+    function UserDetailsPage(ideasService, navCtrl, navParams) {
         this.ideasService = ideasService;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -28,30 +28,30 @@ var UserDatailsComponent = /** @class */ (function () {
             phone: "1"
         };
     }
-    UserDatailsComponent.prototype.getIdeas = function () {
+    UserDetailsPage.prototype.getIdeas = function () {
         var _this = this;
         this.ideasService.getIdeas(this.user.id).subscribe(function (data) {
             _this.ideas = data.ideas;
         });
     };
-    UserDatailsComponent.prototype.ideaSelected = function ($event, idea) {
+    UserDetailsPage.prototype.ideaSelected = function ($event, idea) {
         this.navCtrl.push(IdeaDetailsPage, idea);
     };
-    UserDatailsComponent.prototype.ionViewDidLoad = function () {
+    UserDetailsPage.prototype.ionViewDidEnter = function () {
         this.user = this.navParams.data;
         this.getIdeas();
     };
-    UserDatailsComponent.prototype.addIdea = function () {
+    UserDetailsPage.prototype.addIdea = function () {
         this.navCtrl.push(AddIdeaPage, this.user.id);
     };
-    UserDatailsComponent = __decorate([
+    UserDetailsPage = __decorate([
         Component({
             selector: 'user-datails',
             templateUrl: 'user-datails.component.html'
         }),
         __metadata("design:paramtypes", [IdeasService, NavController, NavParams])
-    ], UserDatailsComponent);
-    return UserDatailsComponent;
+    ], UserDetailsPage);
+    return UserDetailsPage;
 }());
-export { UserDatailsComponent };
+export { UserDetailsPage };
 //# sourceMappingURL=user-datails.component.js.map

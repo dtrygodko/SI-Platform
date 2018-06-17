@@ -10,8 +10,9 @@ namespace DataAccess.Modules
         protected override void Load(ContainerBuilder builder)
         {
             RegisterContext(builder);
-            builder.RegisterType<IdeasRepository>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<UsersRepository>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<IdeasRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<UsersRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<TransactionsRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
         }
 
         protected virtual void RegisterContext(ContainerBuilder builder)
@@ -26,7 +27,7 @@ namespace DataAccess.Modules
                 return options;
             });
 
-            builder.RegisterType<SIPlatformDbContext>().AsSelf().SingleInstance();
+            builder.RegisterType<SIPlatformDbContext>().AsSelf().InstancePerLifetimeScope();
         }
     }
 
@@ -34,7 +35,7 @@ namespace DataAccess.Modules
     {
         protected override void RegisterContext(ContainerBuilder builder)
         {
-            builder.RegisterInstance(MockedDbContext.Create()).As<SIPlatformDbContext>();
+            builder.RegisterInstance(MockedDbContext.Create()).As<SIPlatformDbContext>().InstancePerLifetimeScope();
         }
     }
 }

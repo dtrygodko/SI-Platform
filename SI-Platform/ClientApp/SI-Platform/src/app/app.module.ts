@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {UserService} from "../services/user.service";
 import {UsersPage} from "./users/users.component";
-import {UserDatailsComponent} from "./users/user-datails/user-datails.component";
+import {UserDetailsPage} from "./users/user-datails/user-datails.component";
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { IdeasService } from '../services/idea.service';
@@ -20,7 +20,7 @@ import { FundIdeaPage } from './ideas/fund-idea/fund-idea.component';
   declarations: [
     MyApp,
     UsersPage,
-    UserDatailsComponent,
+    UserDetailsPage,
     IdeaDetailsPage,
     AddIdeaPage,
     AddUserPage,
@@ -36,7 +36,7 @@ import { FundIdeaPage } from './ideas/fund-idea/fund-idea.component';
   entryComponents: [
     MyApp,
     UsersPage,
-    UserDatailsComponent,
+    UserDetailsPage,
     IdeaDetailsPage,
     AddIdeaPage,
     AddUserPage,

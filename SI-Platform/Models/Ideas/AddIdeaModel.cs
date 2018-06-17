@@ -16,5 +16,8 @@ namespace SI_Platform.Models.Ideas
 
         [Required]
         public DateTime StopFundingDate { get; set; }
+
+        [Required]
+        public double Target { get; set; }
     }
 }

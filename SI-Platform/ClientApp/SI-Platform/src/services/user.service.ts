@@ -8,7 +8,7 @@ import {IUser, IUsersList} from "../models/user";
 @Injectable()
 export class UserService {
 
-  constructor(public http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   getUsers(): Observable<IUsersList> {

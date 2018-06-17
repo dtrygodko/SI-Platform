@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Domain.Entities;
 using Domain.Repositories.Write;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Write
 {
@@ -13,11 +15,16 @@ namespace DataAccess.Repositories.Write
             _dbContext = dbContext;
         }
 
-        public async Task Add(Idea idea)
+        public async Task Save(Idea idea)
         {
-            await _dbContext.Ideas.AddAsync(idea);
+            _dbContext.AddOrUpdate(idea);
 
-            await _dbContext.SaveChangesAsync();
+           await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<Idea> Get(Guid id)
+        {
+            return await _dbContext.Ideas.SingleOrDefaultAsync(i => i.Id == id);
         }
     }
 }

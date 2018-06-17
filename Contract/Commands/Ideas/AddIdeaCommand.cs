@@ -26,5 +26,7 @@ namespace Contract.Commands.Ideas
         public DateTime StartFundingDate { get; }
         
         public DateTime StopFundingDate { get; }
+
+        public double Target { get; set; }
     }
 }

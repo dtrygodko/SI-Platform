@@ -3,6 +3,7 @@
     public enum IdeaStatus
     {
         New,
-        FundingStarted
+        FundingStarted,
+        Finished
     }
 }

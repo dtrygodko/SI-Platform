@@ -37,7 +37,7 @@ namespace Application.CommandHandlers.Ideas
 
             var idea = _mapper.Map<Idea>(command);
 
-            await _ideasWriteRepository.Add(idea);
+            await _ideasWriteRepository.Save(idea);
         }
     }
 }

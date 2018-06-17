@@ -8,7 +8,7 @@ namespace DataAccess
         public SIPlatformDbContext CreateDbContext(string[] args)
         {
             DbContextOptions<SIPlatformDbContext> options = new DbContextOptionsBuilder<SIPlatformDbContext>()
-                .UseSqlServer("Server=.\\SQLEXPRESS;Database=SI-Platform;Trusted_Connection=True;MultipleActiveResultSets=True;Integrated Security=SSPI").Options;
+                .UseSqlServer("Server=DTRYHODKO-NB;Database=SI-Platform;Trusted_Connection=True;MultipleActiveResultSets=True;Integrated Security=SSPI").Options;
 
             return new SIPlatformDbContext(options);
         }
